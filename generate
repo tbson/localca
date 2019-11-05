@@ -1,16 +1,12 @@
-if [ ! -d output ]; then
-    mkdir output
-fi
-
 if [ ! -f localca.key ]; then
     openssl genrsa -des3 -out localca.key 2048
-    openssl req -x509 -new -nodes -key localca.key -sha256 -days 1825 -out localca.pem
+    openssl req -x509 -new -nodes -key localca.key -sha256 -days 825 -out localca.pem
 fi
 
 if [ ! -d "$1" ]; then
-    mkdir output/$1
+    mkdir $1
 fi
-cd output/$1
+cd $1
 
 openssl genrsa -out rsa.key 2048
 openssl req -new -key rsa.key -out req.csr
@@ -29,8 +25,7 @@ echo "DNS.1 = $1.test" >> $ext_file
 echo "DNS.2 = www.$1.test" >> $ext_file
 
 
-openssl x509 -req -in req.csr -CA ../../localca.pem -CAkey ../../localca.key -CAcreateserial \
--out cer.crt -days 1825 -sha256 -extfile $ext_file
+openssl x509 -req -in req.csr -CA ../localca.pem -CAkey ../localca.key -CAcreateserial \
+-out cer.crt -days 825 -sha256 -extfile $ext_file
 
-rm req.csr san.ext
-cp ../../localca.pem ./
+cp ../localca.pem ./

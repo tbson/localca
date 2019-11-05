@@ -12,6 +12,6 @@ Generate certificate:
 ./generate mydomain
 ```
 
-Function above will generage certificate for `mydomain.test` domain.
+Function above will generage certificate for `mydomain.test` and `www.mydomain.test` domain.
 
-Checkout `outpu` folder to get result.
+It will create `mydomain` folder that contains the certificate.
