@@ -9,9 +9,9 @@ chmod +x generage
 Generate certificate:
 
 ```
-./generate mydomain
+./generate mydomain.test
 ```
 
 Function above will generage certificate for `mydomain.test` and `www.mydomain.test` domain.
 
-It will create `mydomain` folder that contains the certificate.
+It will create `mydomain.test` folder that contains the certificate.
