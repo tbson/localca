@@ -1,4 +1,6 @@
 *.key
 *.pem
+*.srl
+*.test
 .DS_Store
 output
